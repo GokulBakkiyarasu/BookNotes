@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/feb6b719a4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/addbooks.css?v=1.0">
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+    <div class="book-form-container">
+        <div class="book-form-box">
+            <h2>Add Book</h2>
+            <form method="post" action="/addBook">
+                <div class="input-box">
+                    <i class="fa-solid fa-book""></i>
+                    <input type="text" placeholder="Title" name="title" required>
+                </div>
+                <div class="input-box">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Author" name="author" required>
+                </div>
+                <div class="input-box">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <input type="text" placeholder="PublishedYear" name="year" required>
+                </div>
+                <div class="input-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Genre" name="genre" required>
+                </div>
+                <div class="input-box">
+                    <i class="fa-solid fa-star"></i>
+                    <input type="text" step="0.1" min="0" max="5" placeholder="Rating" name="ratings" required>
+                </div>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-barcode"></i>
+                    <input type="text" placeholder="ISBN" name="isbn" required>
+                </div>
+                <div class="input-box">
+                    <i class="fa-solid fa-link"></i>
+                    <input type="text" placeholder="Link" name="link" required>
+                </div>
+                <div class="input-box">
+                    <i class="fa-regular fa-message"></i>
+                    <textarea name="Description" placeholder="Description"></textarea>
+                </div>
+                <div class="input-box">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <textarea name="Notes" placeholder="Notes"></textarea>
+                </div>
+                <button type="submit">Add Book</button>
+            </form>
+        </div>
+    </div>
+    <input type="text" value="<%= isSubmitted %>" class="submitted" hidden>
+    <%- include("partials/footer.ejs")  %>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="module" src="/js/addBook.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,238 @@
+body{
+    margin: 0;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* navbar */
+nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F5F5F5;
+    margin-bottom: 25px;
+}
+
+nav img{
+    width: 250px;
+    height: 100px;
+}
+
+nav input{
+    margin-top: 20px;
+    margin-right: 10px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #a19ea3;
+    padding-left: 10px;
+    outline: none;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+nav input:hover{
+    box-shadow: 0 0 0 .25rem rgba(3, 105, 167, .25);
+    border-color: #86b7fe;
+}
+
+nav input:focus {
+    box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25);
+    border-color: #86b7fe;
+}
+
+nav button{
+    margin-right: 20px;
+    font-weight: lighter;
+    background-color: white;
+    height: 42px;
+    border: 1px solid #ff7e68;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+nav button:hover{
+    background-color: #ff7e68;
+    color: white;
+}
+
+.admin-login{
+    text-decoration: none;
+    color: white;
+    background-color: #ff7e68;
+    height: 20px;
+    width: 88px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-right: 20px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.search-sort{
+    display: flex;
+    align-items: center;
+}
+
+.sort{
+    margin-top: 20px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.sort select{
+    height: 40px;
+}
+
+/* footer */
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F8F8FF;
+    height: 50px;
+    margin-top: auto;
+}
+
+footer a{
+    text-decoration: none;
+    color: #a19ea3;
+    margin-left: 20px;
+}
+
+footer a:hover{
+    color: #ff7e68;
+}
+
+footer a i{
+    font-size: 25px;
+}
+
+/* card */
+.book-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book-card{
+    display: flex;
+    flex-direction: column;
+    width: 18rem;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.17);
+    border-radius: 5px;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.book-card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.book-card-img-top{
+    height: 250px;
+    width: 100%;
+    border-radius: 5px 5px 0px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.17);
+}
+
+.book-card-body{
+    padding: 10px;
+    border-radius: 0 0 2px 2px;
+}
+.book-card-title,.book-card-text{
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.read-more{
+    margin-top: auto;
+    display: inline;
+}
+
+.btn-primary{
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #0d6efd;
+    width: 100px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.alter-container{
+    display: inline-block;
+    margin-left: 100px;
+}
+
+.alter-container a{
+    text-decoration: none;
+}
+
+.fa-trash{
+    color: #dc3545;
+    border: #dc3545;
+}
+
+.fa-trash:hover{
+    color: #bb2d3b;
+    border: #b02a37;
+}
+
+.fa-file-pen{
+    color: #0d6efd;
+    border: #0d6efd;
+}
+
+.fa-file-pen:hover{
+    color: #0b5ed7;
+    border: #0a58ca;
+}
+
+.no-books{
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 800px) {
+   .book-container{
+    align-items: center;
+    justify-content: center;
+   }
+
+   .book-card {
+       display: flex;
+       flex-direction: column;
+       width: 18rem;
+       margin-bottom: 25px;
+       margin-top: 25px;
+       border: 1px solid rgba(0, 0, 0, 0.17);
+       border-radius: 5px;
+       justify-content: space-around;
+       transition: transform 0.3s ease, box-shadow 0.3s ease;
+   }
+   nav{
+    flex-direction: column;
+    margin-bottom: 20px;
+   }
+
+   nav img{
+    height: 60px;
+    width: 150px;
+   }
+
+   nav input, .sort{
+    margin-top: 0;
+    margin-bottom: 30px;
+   }
+   
+   .admin-login{
+    display: none;
+   }
+
+}

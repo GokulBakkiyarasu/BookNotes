@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/readMore.css">
+    <script src="https://kit.fontawesome.com/feb6b719a4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <%- include("partials/header.ejs") %>
+        <div class="content">
+            <img src="<%= book.img %>" alt="..." class="brief-book-img">
+            <div class="book-details">
+                <h1 class="brief-book-name">Title: <%= book.name %></h1>
+                <div class="book-ratings">
+                    <h2 class="brief-book-ratings">Ratings:
+                    <% var fullStars=Math.floor(book.ratings); %>
+                    <% var halfStar=(book.ratings % 1 !==0); %>
+                    <% var emptyStars=5 - fullStars - (halfStar ? 1 : 0); %>
+                
+                    <!-- Render full stars -->
+                    <% for (var i=0; i < fullStars; i++) { %>
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <% } %>
+                
+                    <!-- Render half star if applicable -->
+                    <% if (halfStar) { %>
+                        <i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>
+                    <% } %>
+                
+                    <!-- Render empty stars -->
+                    <% for (var i=0; i < emptyStars; i++) { %>
+                        <i class="fa-regular fa-star" style="color: #FFD43B;"></i>
+                    <% } %>
+                    </h2>
+                </div>
+                <h2 class="brief-book-genre">Genre: <%= book.genre %></h2>
+                <h2 class="brief-book-author">Author: <%= book.author %></h2>
+                <h2 class="brief-book-year">Published Year: <%= book.publishedYear %></h2>
+                <h2 class="brief-book-desc"><span>Description: <%= book.description %></span></h2>
+            </div>
+        </div>
+        <div class="notes">
+            <h2>Notes: </h2>
+        <h3>
+            <% 
+            // Split the notes string by line breaks to get an array of notes 
+            var notesArray=book.notes.split('\n'); 
+            %>
+            <ul>
+                <% notesArray.forEach(function(note) { %>
+                    <li><%= note.trim() %></li>
+                <% }); %>
+            </ul>
+        </h3>
+
+        </div>
+        <h4>Go to <a href="<%= book.amazonLink %>">Amazon Page</a> for reviews and details</h4>
+        <%- include("partials/footer.ejs") %>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<nav class="navBar">
+    <a href="/"><img src="/images/Logo.png" alt="Logo"></a>
+    <% if (home){ %>
+        <div class="search-sort">
+            <form method="post" action="/search">
+                <% if(locals.searchQuery) {%>
+                <input type="text" name="bookName" placeholder="Enter a book name" value="<%= locals.searchQuery !== "" ? searchQuery : "" %>">
+                <% }else{ %>
+                    <input type="text" name="bookName" placeholder="Enter a book name">
+                <% } %>
+                <button type="submit">Search <i class="fa-solid fa-magnifying-glass" style="color: #a19ea3;"></i></button>
+            </form>
+                <form method="post" action="/sort" class="sort">
+                    <select name="sortType" id="sort" onchange="this.form.submit()">
+                        <option value="none" <% if (selectedSortType==='none' ) { %> selected <% } %>>No Sort</option>
+                        <option value="name" <% if (selectedSortType==='name' ) { %> selected <% } %>>Sort by Name</option>
+                        <option value="year" <% if (selectedSortType==='year' ) { %> selected <% } %>>Sort by Latest</option>
+                        <option value="ratings" <% if (selectedSortType==='ratings' ) { %> selected <% } %>>Sort by Ratings</option>
+                    </select>
+                </form>
+        </div>
+    <% } %>
+    <div>
+        <% if(locals.isAdmin) {%>
+            <% if(locals.home) {%>
+                <a href="<%= locals.home? " /add": "/" %>" class="admin-login"><%= locals.home? "Add Books" : "Home" %></a>
+            <% } %>
+                <a href="<%= locals.home? " /logout": "/" %>" class="admin-login"><%= locals.home? "Log Out" : "Home" %></a>
+        <% } else{%>
+            <a href="<%= locals.home? " /admin/login": "/" %>" class="admin-login"><%= locals.home? "Admin Login": "Home" %></a>
+        <% } %>
+        <% if(locals.isBack) {%>
+            <a href="/" %>" class="admin-login"><%= "Home" %></a>
+        <% } %>
+    </div>
+    
+</nav>
