@@ -230,6 +230,10 @@ footer a i{
     margin-top: 0;
     margin-bottom: 30px;
    }
+
+   nav input{
+    width: 120px;
+   }
    
    .admin-login{
     display: none;

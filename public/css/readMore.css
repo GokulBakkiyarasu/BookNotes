@@ -115,3 +115,16 @@ footer a i {
 .notes h2{
     text-decoration: underline;
 }
+
+@media (max-width: 800px){
+    .brief-book-img {
+        float: none;
+        margin-left: 20px;
+    }
+    .book-details {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0px;
+        margin-top: 20px;
+    }
+}
