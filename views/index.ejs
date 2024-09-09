@@ -1,65 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/index.css">
-    <script src="https://kit.fontawesome.com/feb6b719a4.js" crossorigin="anonymous"></script>
-</head>
-    <body>
-        <div class="container">
-            <%- include("partials/header.ejs") %>
-            <% if(books.length === 0) {%>
-                <input type="text" value="noBooks" class="books-found" hidden>
-            <% }else{ %>
-                <input type="text" value="Books" class="books-found" hidden>
-            <% } %>
-            <div class="book-container">
-                <% for (let book of books) { %>
-                <div class="book-card" style="width: 18rem;">
-                    <img src= <%= book.img %>
-                        class="book-card-img-top" alt="...">
-                    <div class="book-card-body">
-                        <h5 class="book-card-title">
-                            <%= book.name %>
-                            <div class="book-ratings">
-                                <% var fullStars=Math.floor(book.ratings); %>
-                                <% var halfStar=(book.ratings % 1 !==0); %>
-                                <% var emptyStars=5 - fullStars - (halfStar ? 1 : 0); %>
-                            
-                                <!-- Render full stars -->
-                                <% for (var i=0; i < fullStars; i++) { %>
-                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                <% } %>
-                            
-                                <!-- Render half star if applicable -->
-                                <% if (halfStar) { %>
-                                    <i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>
-                                <% } %>
-                            
-                                <!-- Render empty stars -->
-                                <% for (var i=0; i < emptyStars; i++) { %>
-                                    <i class="fa-regular fa-star" style="color: #FFD43B;"></i>
-                                <% } %>
-                            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/images/favicon.png" />
+    <title>BookLog</title>
+    <link rel="stylesheet" href="/css/index.css" />
+    <script
+      src="https://kit.fontawesome.com/feb6b719a4.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-                            </h5>
-                        <p class="book-card-text"><%= book.description %></p>
-                        <div class="read-more"><a href="/book/<%= book.id %>" class="btn btn-primary">Read More</a></div>
-                        <% if(isAdmin) {%>
-                            <div class="alter-container">
-                                <a href="/delete/<%= book.id %>"><i class="fa-solid fa-trash"></i></a>
-                                <a href="/edit/<%= book.id %>"><i class="fa-solid fa-file-pen"></i></a>
-                            </div>
-                        <% } %>
-                    </div>
-                </div>
+  <body>
+    <div class="container">
+      <%- include("partials/header.ejs") %> <% if(books.length===0) { %>
+      <input type="text" value="noBooks" class="books-found" hidden />
+      <% } else { %>
+      <input type="text" value="Books" class="books-found" hidden />
+      <% } %>
+
+      <div class="book-container">
+        <% for (let book of books) { %>
+        <div class="book-card" style="width: 18rem">
+          <img src="<%= book.img %>" class="book-card-img-top" alt="..." />
+          <div class="book-card-body">
+            <h5 class="book-card-title">
+              <%= book.name %>
+              <div class="book-ratings">
+                <% var fullStars=Math.floor(book.ratings); %> <% var
+                halfStar=(book.ratings % 1 !==0); %> <% var emptyStars=5 -
+                fullStars - (halfStar ? 1 : 0); %>
+
+                <!-- Render full stars -->
+                <% for (var i=0; i < fullStars; i++) { %>
+                <i class="fa-solid fa-star" style="color: #ffd43b"></i>
                 <% } %>
+
+                <!-- Render half star if applicable -->
+                <% if (halfStar) { %>
+                <i
+                  class="fa-solid fa-star-half-stroke"
+                  style="color: #ffd43b"
+                ></i>
+                <% } %>
+
+                <!-- Render empty stars -->
+                <% for (var i=0; i < emptyStars; i++) {%>
+                <i class="fa-regular fa-star" style="color: #ffd43b"></i>
+                <% } %>
+              </div>
+            </h5>
+            <p class="book-card-text"><%= book.description %></p>
+            <div class="read-more">
+              <a href="/book/<%= book.id %>" class="btn btn-primary"
+                >Read More</a
+              >
             </div>
-            <%- include("partials/footer.ejs") %>
+            <% if (isAdmin) { %>
+            <div class="alter-container">
+              <a href="/delete/<%= book.id %>">
+                <i class="fa-solid fa-trash"></i>
+              </a>
+              <a href="/edit/<%= book.id %>">
+                <i class="fa-solid fa-file-pen"></i>
+              </a>
+            </div>
+            <% } %>
+          </div>
         </div>
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <script src="/js/_index.js"></script>
-    </body>
+        <% } %>
+      </div>
+
+      <%- include("partials/footer.ejs") %>
+    </div>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="/js/_index.js"></script>
+  </body>
 </html>
