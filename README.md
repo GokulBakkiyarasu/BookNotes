@@ -1,7 +1,4 @@
-Based on the provided image of your **Book Notes Catalog** project's file structure, here's an updated README file to reflect the actual structure:
-
 ---
-
 # BookLog 📚
 
 Book Notes Catalog is a web application designed to catalog non-fiction books, allowing users to explore book details, personal notes, ratings, and more. Users can sort books by rating, recency, and title to enhance their reading experience and manage their personal book library.
